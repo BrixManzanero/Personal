@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class Binary{
+    public static void  main(String ar1[]){
+        Scanner sc=new Scanner(System.in);
+
+        System.out.print("Enter binary number:"); 
+        long num=sc.nextLong(); 
+
+        num=convertBinaryToDecimal(num);
+        System.out.println("Binary To Decimal num: "+num);
+     }
+     public static int convertBinaryToDecimal(long num){
+        int decimalNumber=0,i=0;
+        long remainder;
+    while (num!=0){
+        remainder=num%10;
+        num/=10;
+        decimalNumber+=remainder*Math.pow(2,i);
+        i++;
+
+
+    }
+    return decimalNumber;
+ }
+} 
