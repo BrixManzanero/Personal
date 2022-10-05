@@ -1,0 +1,13 @@
+public class App {
+    public static void main(String[] args) throws Exception {
+        
+        String height = "tall";
+        int age = 19;
+       
+        if (height == "small") {
+            System.out.println("Your crush likes you. ");
+        } else if (age >= 18) {
+            System.out.println("Your crush like you. ");
+        } else {
+            System.out.println("Your crush doesn't like you. ");
+        }
