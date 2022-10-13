@@ -1,0 +1,15 @@
+import java.util.*;
+public class App {
+    public static void main(String args[]) {
+
+    Scanner input = new Scanner(System.in);
+    
+    System.out.print("Enter name of your crush: ");
+    String crush = input.nextLine();
+   
+
+    System.out.print("Enter age of your crush: ");
+    String age = input.nextLine();
+    
+    System.out.print("Hobby of your friend: ");
+    String hobby = input.nextLine();
