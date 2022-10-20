@@ -1,0 +1,120 @@
+public class App {
+    public static void main(String args[]) {
+    //    // Alcohol Name Brand
+    //     String[] AlcoholBrand = {"Alfonso", "Empi", "The Bar", "Black Label", "Gsm Blue"}; 
+    //     System.out.println(AlcoholBrand[0]);
+        
+    //     // Single Char
+      // char[] myName = {'B', 'R', 'I', 'X'};
+    //     System.out.println(myName[3]);
+
+    //     // 
+    //     for (int i = 0; i < myName.length; i++) {
+    //         if(myName[i] == 'A' || myName[i] == 'E' || myName[i] == 'I' || myName[i] == 'O' || myName[i] =='U') {
+    //             System.out.println(myName[i]);
+    //         }
+           
+            
+
+    //      }
+
+    //     }
+
+    // } 
+//     String [][] sittingArrangement = {{"A", "B", "C"},  {"D", "E", "F"},  {"G", "H", "I"}};
+        
+//     System.out.println(sittingArrangement[1][1]); 
+//     System.out.println(sittingArrangement[2][0]);
+//     System.out.println(sittingArrangement[0][1]);
+    
+
+//     }
+// }
+// for (int hours = 0; hours < 12; hours++) {
+//     for (int minutes = 0; minutes < 800; minutes++) {
+//         for (int seconds  = 0; seconds < ; seconds++)
+//         System.out.println(hours + " : " + minutes + " : " + seconds);
+//         }
+//       }
+//     }
+// }
+
+//         String [][] test = 
+//         {
+//             {"A", "B", "C"},
+//             {"D", "E", "F"},
+//             {"G", "H", "I"}
+//         };
+
+
+//         for (int row = 0; row < test.length; row++){
+
+//             System.out.println("");
+//             for(int column = 0; column < test.length; column++){
+
+//             System.out.print(test[row][column]);
+
+//             }
+    
+//         }
+//     }
+// }
+
+//     String [][] test = 
+//        {
+//          {"A", "B", "C"},
+//          {"D", "E", "F"},
+//          {"G", "H", "I"},
+//         };
+
+//             for (int row = 2; row >=0; row--){
+            
+//                 System.out.println("");
+//                 for(int column = 2; column >=0; column--){
+                
+//                  System.out.println(test[row][column]);
+
+//             }
+            
+//         }
+//     }
+// }
+
+
+
+    String [][] test = 
+       {
+         {"A", "B", "C"},
+         {"D", "E", "F"},
+         {"G", "H", "I"},
+        };
+
+    for (int row = 0; row < test.length; row++) {
+        for(int column = 0; column < test[row].length; column++){
+            
+            if(row % 2 == 0) {
+                if(column % 2 == 0) {
+
+                
+         System.out.print(test[row][column]);   
+        }
+        else {
+            System.out.print(" ");
+        }
+    }
+        
+        else {
+            if(column % 2 == 1 ) {
+                   System.out.print(test[row][column]);
+            } 
+        } 
+
+        else {
+            System.out.print(" ");
+          }
+             }
+        }
+        System.out.print(" "); 
+    }
+    } 
+ 
