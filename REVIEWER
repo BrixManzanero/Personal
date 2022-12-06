@@ -1,3 +1,61 @@
 DATA TYPES 
 PREMITIVE /CHAR/INT/FLOAT/DOUBLE/BOOLEAN/SHORT
 NON-PREMITIVE /STRING/ARRAY/ETC.
+  // int a = 3;
+        // int b = 5;
+        // boolean isTony = true;
+        // boolean isBen = false;
+
+        // if ((a < b && isTony) || isBen) {
+        //     System.out.println("It is to be a good day!"); 
+
+
+        // String firstName = "Brix";
+        // String lastName = "Manzanero";
+        
+        // System.out.println(firstName + lastName);
+
+        // int x = 5;
+        // int y = 15;
+
+        // System.out.println(x + y);
+
+        // int x = 5, y = 20, z = 40;
+        // System.out.println(x + y + z);
+
+
+        // int myInt = 16;
+        // double myDouble = myInt;
+
+        // System.out.println(myInt + myDouble);
+    
+        // Logic and returns true if statements are true.
+        //  int x =5;
+        // System.out.println(x > 3 && x < 10);
+
+        // Logic or returns true if one of the statements is true 
+        // int x = 5;
+        // System.out.println(x < 5 || x > 4);
+
+       
+        // Logi not operators reverse the results, returns false if the resulsts are treue. 
+        //  int a = 5;
+        //  System.out.println(!(a > 3 && a < 10));
+
+        // Java string or string lenght 
+        // String txt = "ABCDEFGHIJKLMNOPQRSTUVWZ";
+        // System.out.println("The lenght of txt string is: " + txt.length());
+
+
+        // java string conatenation
+
+        // String firstName = "Brix ";
+        // String lastName = "Manzanero";
+
+        // System.out.println(firstName + lastName);
+
+
+        // Java speicial characters/ String special characters 
+
+        // String txt = "Hell\fWorld!";
+        // System.out.println(txt);
