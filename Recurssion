@@ -1,0 +1,21 @@
+//recurs is a method calls it self method. 
+		
+				int num = 3;
+				int factorial;
+				factorial = factorial(num);
+				System.out.println("The factorial of " + num + " is " + factorial);
+				
+			
+			
+			// 5! = 5x4x3x2x1 =120;
+			// 4! = 4x3x2x1 = 24
+				
+				public static int factorial(int num);
+					
+					
+					if (num==1)
+						System.out.println();
+						return 1;
+						
+					return num * factorial(num-1);
+				
