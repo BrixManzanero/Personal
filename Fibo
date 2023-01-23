@@ -1,0 +1,29 @@
+public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+	
+	int Num1 = sc.nextInt();
+	System.out.println("Enter a first Number: ");
+	int Num2 = sc.nextInt();
+	System.out.println("Enter a Second Number: ");
+
+	
+		int[] fib = new int[15];
+		 fib[0] = 0;
+		 fib[1] = 1;
+		
+		for(int i=2;i<15;i++) {
+		 fib [i] = fib[i-1] + fib[i-2];
+		}
+		System.out.println("Fibonacci series: ");
+		for(int i=0; i<15; i++);
+		System.out.print(fib(i) + " ");
+		
+		}
+
+	private static String fib(Object i) {
+		
+		return null;
+		if(n<2) {
+			return num[n];
+			
