@@ -1,0 +1,10 @@
+String name = JOptionPane.showInputDialog("Enter the name of Important Person ");
+	JOptionPane.showMessageDialog(null, "Miss na Miss na kita "+name);
+	JOptionPane.showMessageDialog(null, "Balik kana plssss!! ");
+	JOptionPane.showMessageDialog(null, "Sabay tayo bukas ");
+	JOptionPane.showMessageDialog(null, "Maghihintay ako sa Legarda ");
+	JOptionPane.showMessageDialog(null, "I Love youuuuu!! Always to the moon and back left and right ");
+	
+	
+	int age = Integer.parseInt(JOptionPane.showInputDialog("Enter your age "));	
+	JOptionPane.showMessageDialog(null, "You are  "+age+" years Old");
