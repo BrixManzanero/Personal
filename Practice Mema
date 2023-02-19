@@ -1,0 +1,39 @@
+public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+	
+//		String name; 
+//		
+//		System.out.println("PLease enter your name: ");
+//		name = sc.nextLine();
+//		System.out.println("How old are you? ");
+//		int age = sc.nextInt();
+//		sc.nextLine();
+//		System.out.println("What is your favorite food?");
+//		String food = sc.nextLine();
+//		
+//		System.out.println("Welcome  "+ name);
+//		System.out.println("Your are " +age+" years old");
+//		
+//		
+		
+//		
+//		int friends = 10; 
+//		
+//		friends = friends + 1;
+//		
+//		System.out.println(friends);
+//	
+//	
+		
+		
+		
+
+	JOptionPane.showMessageDialog(null, "TARA KAPE ULIT.");
+	JOptionPane.showMessageDialog(null, "AROUND MANILA NAMAN NEXT TIME. ");
+	JOptionPane.showMessageDialog(null, "GOODLUCK NEX SEM!!.  ");
+	JOptionPane.showMessageDialog(null, "KONTI NALANG PASYENTE KANA HAHAHAHAHAH. ");
+	JOptionPane.showMessageDialog(null, "EME LANG GOODLUCK!!. ");
+	
+	
+	
