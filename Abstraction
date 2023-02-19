@@ -1,0 +1,71 @@
+public class Main {
+
+	public static void main(String[] args) {  // MAIN CLASS 
+	
+		
+		//CONCRETE IDEA
+		Animal d = new Dog();
+		Animal c = new Cat();
+		
+		
+		
+		d.setName("Doggy");
+		c.setName("Catty");
+		
+		d.makeSound();
+		c.makeSound();
+		
+		d.showName();
+		c.showName();
+
+
+
+
+public abstract class Animal { // 1ST SUPER 
+
+	
+	String name;
+	
+	
+	abstract void makeSound();
+	
+	void showName() {
+		System.out.println("Name : " + name);
+		
+		
+		
+		
+	}
+	void setName(String name) {
+		this.name = name;
+    
+    
+    
+    
+   
+    
+    
+    
+    public class Cat extends Animal { // ATTRIBUTES 
+
+	
+	void makeSound() {
+		System.out.println("Meow!");
+    
+    
+    
+    
+    
+    
+    public class Dog extends Animal{ 
+
+	
+	void makeSound() {
+		System.out.println("ARFF, ARFF!");
+    
+    
+    
+    
+    
+    
+    
