@@ -1,0 +1,456 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class SignUP {
+
+	private JFrame frame;
+	private JTextField txtEmail;
+	private JTextField txtFirstname;
+	private JTextField txtLastname;
+	private JPasswordField txtPassword;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SignUP window = new SignUP();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public SignUP() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 424, 360);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel Button = new JPanel();
+		Button.setBounds(29, 11, 355, 299);
+		frame.getContentPane().add(Button);
+		Button.setLayout(null);
+		
+		JLabel lblCreate = new JLabel("Create Account");
+		lblCreate.setFont(new Font("Arial", Font.BOLD, 13));
+		lblCreate.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblCreate.setBounds(113, 23, 107, 31);
+		Button.add(lblCreate);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(81, 65, 216, 40);
+		Button.add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtEmail = new JTextField();
+		txtEmail.setFont(new Font("Arial", Font.BOLD, 11));
+		txtEmail.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtEmail.getText().equals("EMAIL")) {
+					txtEmail.setText("");
+				}
+				else {
+					txtEmail.selectAll(); 
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtEmail.getText().equals(""))
+					txtEmail.setText("EMAIL");
+			}
+		});
+		txtEmail.setText("EMAIL");
+		txtEmail.setBounds(10, 11, 126, 20);
+		panel_1.add(txtEmail);
+		txtEmail.setColumns(10);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setLayout(null);
+		panel_1_1.setBounds(81, 116, 216, 40);
+		Button.add(panel_1_1);
+		
+		txtFirstname = new JTextField();
+		txtFirstname.setFont(new Font("Arial", Font.BOLD, 11));
+		txtFirstname.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+
+				if(txtFirstname.getText().equals("First name")) {
+					txtFirstname.setText("");
+				}
+				else {
+					txtFirstname.selectAll();
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtFirstname.getText().equals(""))
+					txtFirstname.setText("First name");
+			
+			}
+		});
+		txtFirstname.setText("First name");
+		txtFirstname.setColumns(10);
+		txtFirstname.setBounds(10, 11, 126, 20);
+		panel_1_1.add(txtFirstname);
+		
+		JPanel panel_1_1_1 = new JPanel();
+		panel_1_1_1.setLayout(null);
+		panel_1_1_1.setBounds(81, 167, 216, 40);
+		Button.add(panel_1_1_1);
+		
+		txtLastname = new JTextField();
+		txtLastname.setFont(new Font("Arial", Font.BOLD, 11));
+		txtLastname.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+
+				if(txtLastname.getText().equals("Last name")) {
+					txtLastname.setText("");
+				}
+				else {
+					txtLastname.selectAll();	
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtLastname.getText().equals(""))
+					txtLastname.setText("Last name");
+			}
+		});
+		txtLastname.setText("Last name");
+		txtLastname.setColumns(10);
+		txtLastname.setBounds(10, 11, 126, 20);
+		panel_1_1_1.add(txtLastname);
+		
+		JPanel panel_1_1_1_1 = new JPanel();
+		panel_1_1_1_1.setLayout(null);
+		panel_1_1_1_1.setBounds(81, 218, 216, 40);
+		Button.add(panel_1_1_1_1);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setFont(new Font("Arial", Font.BOLD, 11));
+		txtPassword.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("Password")) {
+					txtPassword.setEchoChar('●');
+					txtPassword.setText("");
+				
+				}
+				else {
+					txtPassword.selectAll();
+				}
+			}
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("")) {
+					txtPassword.setText("Password");
+					 txtPassword.setEchoChar((char)0);
+				}
+			}
+		});
+		txtPassword.setEchoChar((char)0);
+		txtPassword.setText("Password");
+		txtPassword.setBounds(10, 11, 131, 20);
+		panel_1_1_1_1.add(txtPassword);
+		
+		JButton btnNewButton = new JButton("Sign Up");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String EMAIL = txtEmail.getText();
+				String Firstname = txtFirstname.getText();
+				String Lastname = txtLastname.getText();
+				String password = txtPassword.getText();
+				
+				if(EMAIL.contains("ADMMIN@GMAIL.COM") && Firstname.contains("ADMIN") && Lastname.contains("GOJU") && password.contains("cosmo")) {
+					txtEmail.setText(null);
+					txtFirstname.setText(null);
+					txtLastname.setText(null);
+					txtPassword.setText(null);
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null, "CREATE SUCCESSFULLY");
+				}
+				
+				LogIn window = new LogIn();
+				window.setVisible(true);
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 11));
+		btnNewButton.setBounds(91, 265, 89, 23);
+		Button.add(btnNewButton);
+	}
+}
+
+
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JSeparator;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.SwingConstants;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.DefaultComboBoxModel;
+
+public class LogIn extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
+	private JTextField txtField;
+	private JLabel lblLogInMessage = new JLabel("");
+	private ButtonGroup bg=new ButtonGroup();
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LogIn frame = new LogIn();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public LogIn() {
+		setBackground(Color.LIGHT_GRAY);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 352);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setForeground(Color.LIGHT_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("NETFLIX");
+		lblNewLabel.setForeground(Color.WHITE);
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 14));
+		lblNewLabel.setBounds(169, 30, 68, 14);
+		contentPane.add(lblNewLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(111, 81, 183, 40);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		txtUsername = new JTextField();
+		txtUsername.setFont(new Font("Arial", Font.BOLD, 11));
+		txtUsername.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtUsername.getText().equals("Username")) {
+					txtUsername.setText("");
+					
+				}
+				else {
+					txtUsername.selectAll();
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtUsername.getText().equals(""))
+					txtUsername.setText("Username");
+			}
+		});
+		txtUsername.setText("Username");
+		txtUsername.setBounds(10, 11, 125, 20);
+		panel.add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(111, 130, 183, 40);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setFont(new Font("Arial", Font.BOLD, 11));
+		txtPassword.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("Password")) {
+					txtPassword.setEchoChar('●');
+					txtPassword.setText("");
+			
+				
+			}
+			else {
+				txtPassword.selectAll();
+			}
+		}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtPassword.getText().equals(""))
+					txtPassword.setText("Password");
+				    txtPassword.setEchoChar((char)0);
+			}
+		});
+		txtPassword.setText("Password");
+		txtPassword.setEchoChar((char)0);
+		txtPassword.setBounds(10, 11, 130, 20);
+		panel_1.add(txtPassword);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(90, 60, 223, 10);
+		contentPane.add(separator);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setBounds(90, 256, 223, 10);
+		contentPane.add(separator_1);
+		lblLogInMessage.setForeground(Color.WHITE);
+		lblLogInMessage.setFont(new Font("Arial", Font.BOLD, 11));
+		
+		lblLogInMessage.setBounds(111, 181, 243, 23);
+		contentPane.add(lblLogInMessage);
+		
+		JRadioButton rdbtnMale = new JRadioButton("MALE");
+		rdbtnMale.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+			
+				if(rdbtnMale.isSelected()== true) {
+					txtField.setText("MALE");
+				}
+			}
+		});
+		rdbtnMale.setFont(new Font("Arial", Font.BOLD, 11));
+		rdbtnMale.setBounds(97, 216, 74, 23);
+		contentPane.add(rdbtnMale);
+		
+		JRadioButton rdbtnFemale = new JRadioButton("FEMALE");
+		rdbtnFemale.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+			
+				if(rdbtnFemale.isSelected()== true) {
+					txtField.setText("FEMALE");
+			}
+		}
+		});
+		rdbtnFemale.setFont(new Font("Arial", Font.BOLD, 11));
+		rdbtnFemale.setBounds(199, 216, 74, 23);
+		contentPane.add(rdbtnFemale);
+		bg.add(rdbtnMale);
+		bg.add(rdbtnFemale);
+		
+		txtField = new JTextField();
+		txtField.setHorizontalAlignment(SwingConstants.CENTER);
+		txtField.setFont(new Font("Arial", Font.BOLD, 11));
+		txtField.setBounds(325, 215, 57, 20);
+		contentPane.add(txtField);
+		txtField.setColumns(10);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Arial", Font.BOLD, 11));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Types of Movies ", "JOHN WICK", "SPIDER MAN ", "AVENGERS ", "OTHERS"}));
+		comboBox.setBounds(62, 267, 134, 22);
+		contentPane.add(comboBox);
+		
+		JButton btnNewButton = new JButton("LOGIN");
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 11));
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+				if(txtUsername.getText().equals("ADMIN1624") && txtPassword.getText().equals("cosmo")) {
+					lblLogInMessage.setText("");
+					JOptionPane.showMessageDialog(null, "LOGIN SUCCESSFUL");
+					
+					
+				}
+				else if(txtUsername.getText().equals("") || txtUsername.equals("Username") ||
+						txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
+					lblLogInMessage.setText("Please input all the requirements!");
+					
+				}
+				else {
+				
+					lblLogInMessage.setText("Username and Password didn't match");
+			
+			
+				}
+				
+				
+			}
+		});
+		btnNewButton.setBounds(227, 267, 89, 23);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\brixm\\Downloads\\netflix-logo-getty-imageschesnotkontributor-scaled.jpg"));
+		lblNewLabel_1.setBounds(10, 0, 424, 313);
+		contentPane.add(lblNewLabel_1);
+	}
+}
