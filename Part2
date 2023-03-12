@@ -1,0 +1,154 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Color;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.JFormattedTextField;
+import javax.swing.JPasswordField;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import javax.swing.SwingConstants;
+import javax.swing.JButton;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class FinalExam {
+
+	private JFrame frame;
+	private JTextField txtUsername;
+	private JPasswordField txtPassword;
+	private JLabel lblLoginMessage = new JLabel("");
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FinalExam window = new FinalExam();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public FinalExam() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(0, 128, 128));
+		frame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(141, 92, 231, 50);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		txtUsername = new JTextField();
+		txtUsername.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtUsername.getText().equals("Username")) {
+					txtUsername.setText("");
+				}
+				else {
+					txtUsername.selectAll();
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				if(txtUsername.getText().equals(""))
+					txtUsername.setText("Username");
+			}
+		});
+		txtUsername.setText("Username");
+		txtUsername.setBounds(10, 11, 152, 26);
+		panel.add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("Password")) {
+					txtPassword.setEchoChar('●');
+					txtPassword.setText("");
+				
+				}
+				else {
+					txtPassword.selectAll();
+				}
+		
+			}
+		});
+		panel_1.setBounds(141, 153, 231, 47);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusLost(FocusEvent e) {
+				if(txtPassword.getText().equals(""))
+					txtPassword.setText("Password");
+					txtPassword.setEchoChar((char)0);
+				
+			}
+		});
+		txtPassword.setEchoChar((char)0);
+		txtPassword.setText("Password ");
+		txtPassword.setBounds(10, 11, 158, 25);
+		panel_1.add(txtPassword);
+		
+		JLabel lblNewLabel = new JLabel("SIGN UP");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(127, 29, 268, 47);
+		frame.getContentPane().add(lblNewLabel);
+		
+		lblLoginMessage.setBounds(141, 211, 231, 20);
+		frame.getContentPane().add(lblLoginMessage);
+		
+		JButton btnNewButton = new JButton("LOG IN");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				if(txtUsername.getText().equals("Admin") && txtPassword.getText().equals("cosmo")) {
+					//if user inputs are correct
+					lblLoginMessage.setText("");
+					JOptionPane.showMessageDialog(null, "Log in Success");
+				}
+				else if(txtUsername.getText().equals("") || txtUsername.getText().equals("Username") || 
+						txtPassword.getText().equals("") || txtPassword.getText().equals("Password")) {
+						lblLoginMessage.setText("Please input all requirements");
+					
+			}
+				else {
+					lblLoginMessage.setText("INVALID INPUT");
+				}
+			}
+			
+			
+		});
+		btnNewButton.setBounds(193, 256, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+		frame.setBounds(100, 100, 511, 382);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}
