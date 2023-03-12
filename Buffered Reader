@@ -1,0 +1,15 @@
+public class UserInputs {
+
+	public static void main(String[] args)  throws IOException {
+		//InputStream
+		InputStreamReader isr = new InputStreamReader(System.in);
+		BufferedReader bf = new BufferedReader(isr); 
+		
+		System.out.println("What is your name? ");
+		String name = bf.readLine();
+		System.out.println("Hello Mr./Ms " + name);
+		
+		System.out.println("How old are you?");
+		int age = Integer.parseInt(bf.readLine());
+		System.out.println("You are " + age + " years old");
+		
