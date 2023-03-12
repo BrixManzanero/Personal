@@ -1,0 +1,225 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class SignUP {
+
+	private JFrame frame;
+	private JTextField txtEmail;
+	private JTextField txtFirstname;
+	private JTextField txtLastname;
+	private JPasswordField txtPassword;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SignUP window = new SignUP();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public SignUP() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 424, 360);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JPanel Button = new JPanel();
+		Button.setBounds(29, 11, 355, 299);
+		frame.getContentPane().add(Button);
+		Button.setLayout(null);
+		
+		JLabel lblCreate = new JLabel("Create Account");
+		lblCreate.setFont(new Font("Arial", Font.BOLD, 13));
+		lblCreate.setHorizontalAlignment(SwingConstants.TRAILING);
+		lblCreate.setBounds(99, 23, 107, 31);
+		Button.add(lblCreate);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(81, 65, 216, 40);
+		Button.add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtEmail = new JTextField();
+		txtEmail.setFont(new Font("Arial", Font.BOLD, 11));
+		txtEmail.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtEmail.getText().equals("EMAIL")) {
+					txtEmail.setText("");
+				}
+				else {
+					txtEmail.selectAll(); 
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtEmail.getText().equals(""))
+					txtEmail.setText("EMAIL");
+			}
+		});
+		txtEmail.setText("EMAIL");
+		txtEmail.setBounds(10, 11, 126, 20);
+		panel_1.add(txtEmail);
+		txtEmail.setColumns(10);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setLayout(null);
+		panel_1_1.setBounds(81, 116, 216, 40);
+		Button.add(panel_1_1);
+		
+		txtFirstname = new JTextField();
+		txtFirstname.setFont(new Font("Arial", Font.BOLD, 11));
+		txtFirstname.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+
+				if(txtFirstname.getText().equals("First name")) {
+					txtFirstname.setText("");
+				}
+				else {
+					txtFirstname.selectAll();
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtFirstname.getText().equals(""))
+					txtFirstname.setText("First name");
+			
+			}
+		});
+		txtFirstname.setText("First name");
+		txtFirstname.setColumns(10);
+		txtFirstname.setBounds(10, 11, 126, 20);
+		panel_1_1.add(txtFirstname);
+		
+		JPanel panel_1_1_1 = new JPanel();
+		panel_1_1_1.setLayout(null);
+		panel_1_1_1.setBounds(81, 167, 216, 40);
+		Button.add(panel_1_1_1);
+		
+		txtLastname = new JTextField();
+		txtLastname.setFont(new Font("Arial", Font.BOLD, 11));
+		txtLastname.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+
+				if(txtLastname.getText().equals("Last name")) {
+					txtLastname.setText("");
+				}
+				else {
+					txtLastname.selectAll();	
+				}
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtLastname.getText().equals(""))
+					txtLastname.setText("Last name");
+			}
+		});
+		txtLastname.setText("Last name");
+		txtLastname.setColumns(10);
+		txtLastname.setBounds(10, 11, 126, 20);
+		panel_1_1_1.add(txtLastname);
+		
+		JPanel panel_1_1_1_1 = new JPanel();
+		panel_1_1_1_1.setLayout(null);
+		panel_1_1_1_1.setBounds(81, 218, 216, 40);
+		Button.add(panel_1_1_1_1);
+		
+		txtPassword = new JPasswordField();
+		txtPassword.setFont(new Font("Arial", Font.BOLD, 11));
+		txtPassword.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("Password")) {
+					txtPassword.setEchoChar('●');
+					txtPassword.setText("");
+				
+				}
+				else {
+					txtPassword.selectAll();
+				}
+			}
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtPassword.getText().equals("")) {
+					txtPassword.setText("Password");
+					 txtPassword.setEchoChar((char)0);
+				}
+			}
+		});
+		txtPassword.setEchoChar((char)0);
+		txtPassword.setText("Password");
+		txtPassword.setBounds(10, 11, 131, 20);
+		panel_1_1_1_1.add(txtPassword);
+		
+		JButton btnNewButton = new JButton("Sign Up");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				String EMAIL = txtEmail.getText();
+				String Firstname = txtFirstname.getText();
+				String Lastname = txtLastname.getText();
+				String password = txtPassword.getText();
+				
+				if(EMAIL.contains("ADMMIN@GMAIL.COM") && Firstname.contains("ADMIN1624") && Lastname.contains("GOJU") && password.contains("cosmo")) {
+					txtEmail.setText(null);
+					txtFirstname.setText(null);
+					txtLastname.setText(null);
+					txtPassword.setText(null);
+				}
+				
+				else {
+					JOptionPane.showMessageDialog(null, "CREATE SUCCESSFULLY");
+				}
+				
+				LogIn window = new LogIn();
+				window.setVisible(true);
+				
+			}
+		});
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 11));
+		btnNewButton.setBounds(91, 265, 89, 23);
+		Button.add(btnNewButton);
+	}
+}
