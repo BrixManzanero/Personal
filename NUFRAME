@@ -1,0 +1,68 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.DefaultComboBoxModel;
+
+ class MainFrame {
+
+	private JFrame MAINFRAME;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainFrame window = new MainFrame();
+					window.MAINFRAME.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MainFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		MAINFRAME = new JFrame();
+		MAINFRAME.setBounds(100, 100, 450, 319);
+		MAINFRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MAINFRAME.getContentPane().setLayout(null);
+		
+		JComboBox cmBoxBranch = new JComboBox();
+		cmBoxBranch.setModel(new DefaultComboBoxModel(new String[] {"NU MANILA", "NU MOA"}));
+		cmBoxBranch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				if(cmBoxBranch.getSelectedIndex()==1) {
+					NuManila window = new NuManila();
+					window.NUMANILA.setVisible(true);
+					MAINFRAME.dispose();
+				}
+				else if(cmBoxBranch.getSelectedIndex()==2) {
+						NuMoa window = new NuMoa();
+						window.NUMOA.setVisible(true);
+						MAINFRAME.dispose();
+				}
+			
+			
+			}
+		});
+		cmBoxBranch.setBounds(134, 136, 137, 22);
+		MAINFRAME.getContentPane().add(cmBoxBranch);
+	}
+
+}
