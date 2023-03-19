@@ -1,0 +1,214 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class SecondFrame {
+
+	 JFrame SECONDFRAME;
+	 private JLabel StudentNumber;
+	 private JTextField STUDENTNUMBER;
+	 private JTextField FIRSTNAME;
+	 private JTextField LASTNAME;
+	 private JComboBox Course;
+	 private JButton btnNewButton_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					SecondFrame window = new SecondFrame();
+					window.SECONDFRAME.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public SecondFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		SECONDFRAME = new JFrame();
+		SECONDFRAME.setBounds(100, 100, 479, 405);
+		SECONDFRAME.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		SECONDFRAME.getContentPane().setLayout(null);
+		
+		StudentNumber = new JLabel("Student Number");
+		StudentNumber.setBounds(29, 95, 92, 22);
+		SECONDFRAME.getContentPane().add(StudentNumber);
+		
+		JLabel FirstName = new JLabel("First Name");
+		FirstName.setBounds(29, 136, 78, 22);
+		SECONDFRAME.getContentPane().add(FirstName);
+		
+		JLabel LastName = new JLabel("Last Name");
+		LastName.setBounds(29, 169, 78, 22);
+		SECONDFRAME.getContentPane().add(LastName);
+		
+		STUDENTNUMBER = new JTextField();
+		STUDENTNUMBER.setBounds(137, 96, 114, 20);
+		SECONDFRAME.getContentPane().add(STUDENTNUMBER);
+		STUDENTNUMBER.setColumns(10);
+		
+		FIRSTNAME = new JTextField();
+		FIRSTNAME.setColumns(10);
+		FIRSTNAME.setBounds(137, 137, 114, 20);
+		SECONDFRAME.getContentPane().add(FIRSTNAME);
+		
+		LASTNAME = new JTextField();
+		LASTNAME.setColumns(10);
+		LASTNAME.setBounds(137, 170, 114, 20);
+		SECONDFRAME.getContentPane().add(LASTNAME);
+		
+		JComboBox StudentType = new JComboBox();
+		StudentType.setBounds(137, 219, 148, 22);
+		SECONDFRAME.getContentPane().add(StudentType);
+		
+		StudentType.addItem("CHOOSE A TYPE");
+		StudentType.addItem("GOLD");
+		StudentType.addItem("BLUE");
+		StudentType.addItem("WHITE");
+		StudentType.addItem("WALK-IN");
+		StudentType.addItem("CONTINUING");
+		
+		Course = new JComboBox();
+		Course.setBounds(137, 262, 148, 22);
+		SECONDFRAME.getContentPane().add(Course);
+		
+		Course.addItem("CHOOSE A COURSE");
+		Course.addItem("TOURISM");
+		Course.addItem("COMPUTER SCIENCE");
+		Course.addItem("NURSING");
+		Course.addItem("ARCHITECTURE");
+		
+		JButton btnNewButton = new JButton("SUBMIT");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				double TF = 0;
+				double Mc = 0;
+				double fee = 0;
+				
+				if(Course.getSelectedItem().toString().equals("TOURISM")) {
+					TF = 10000;
+					Mc = 22500;
+					if(StudentType.getSelectedItem().toString().equals("GOLD")) {
+						fee = ((TF + Mc)-((TF + Mc)*0.5));
+					} else if(StudentType.getSelectedItem().toString().equals("BLUE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.3));
+					} else if(StudentType.getSelectedItem().toString().equals("WHITE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.2));
+					} else if(StudentType.getSelectedItem().toString().equals("WALK-IN")){
+						fee = TF + Mc;
+					} else if(StudentType.getSelectedItem().toString().equals("CONTINUING")){
+						fee = ((TF + Mc)-(TF*0.1));
+					} else { JOptionPane.showMessageDialog(null,fee);}
+					
+					JOptionPane.showMessageDialog(null,"Your Tuition Fee: " + TF + "\nYour Miscellaneous Fee: " + Mc + "\nYour Total is: " + fee);
+					return;
+					
+				} else if(Course.getSelectedItem().toString().equals("COMPUTER SCIENCE")){
+					TF = 20000;
+					Mc = 11000;
+					if(StudentType.getSelectedItem().toString().equals("GOLD")) {
+						fee = ((TF + Mc)-((TF + Mc)*0.5));
+					} else if(StudentType.getSelectedItem().toString().equals("BLUE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.3));
+					} else if(StudentType.getSelectedItem().toString().equals("WHITE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.2));
+					} else if(StudentType.getSelectedItem().toString().equals("WALK-IN")){
+						fee = TF + Mc;
+					} else if(StudentType.getSelectedItem().toString().equals("CONTINUING")){
+						fee = ((TF + Mc)-(TF*0.1));
+					} else { JOptionPane.showMessageDialog(null,fee);}
+					
+					JOptionPane.showMessageDialog(null,"Your Tuition Fee: " + TF + "\nYour Miscellaneous Fee: " + Mc + "\nYour Total is: " + fee);
+					return;
+					
+				} else if(Course.getSelectedItem().toString().equals("NURSING")){
+					TF = 15000;
+					Mc = 15000;
+					
+					if(StudentType.getSelectedItem().toString().equals("GOLD")) {
+						fee = ((TF + Mc)-((TF + Mc)*0.5));
+					} else if(StudentType.getSelectedItem().toString().equals("BLUE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.3));
+					} else if(StudentType.getSelectedItem().toString().equals("WHITE")){
+						fee = ((TF + Mc)-((TF + Mc)*0.2));
+					} else if(StudentType.getSelectedItem().toString().equals("WALK-IN")){
+						fee = TF + Mc;
+					} else if(StudentType.getSelectedItem().toString().equals("CONTINUING")){
+						fee = ((TF + Mc)-(TF*0.1));
+					} else { JOptionPane.showMessageDialog(null,fee);}
+					
+					JOptionPane.showMessageDialog(null,"Your Tuition Fee: " + TF + "\nYour Miscellaneous Fee: " + Mc + "\nYour Total is: " + fee);
+					return;
+					
+					
+					} else if(Course.getSelectedItem().toString().equals("ARCHIYECTURE")){
+						TF = 25000;
+						Mc = 23500;
+						
+						if(StudentType.getSelectedItem().toString().equals("GOLD")) {
+							fee = ((TF + Mc)-((TF + Mc)*0.5));
+						} else if(StudentType.getSelectedItem().toString().equals("BLUE")){
+							fee = ((TF + Mc)-((TF + Mc)*0.3));
+						} else if(StudentType.getSelectedItem().toString().equals("WHITE")){
+							fee = ((TF + Mc)-((TF + Mc)*0.2));
+						} else if(StudentType.getSelectedItem().toString().equals("WALK-IN")){
+							fee = TF + Mc;
+						} else if(StudentType.getSelectedItem().toString().equals("CONTINUING")){
+							fee = ((TF + Mc)-(TF*0.1));
+						} else { JOptionPane.showMessageDialog(null,fee);}
+						
+						JOptionPane.showMessageDialog(null,"Your Tuition Fee: " + TF + "\nYour Miscellaneous Fee: " + Mc + "\nYour Total is: " + fee);
+						return;
+
+					} else {
+						JOptionPane.showMessageDialog(null,"TRY AGAIN");
+						SecondFrame next = new SecondFrame();
+						next.initialize();
+						
+						
+						
+				}
+				
+			
+			}
+		});
+		btnNewButton.setBounds(212, 311, 89, 23);
+		SECONDFRAME.getContentPane().add(btnNewButton);
+		
+		btnNewButton_1 = new JButton("LOG OUT");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				MainFrame window = new MainFrame();
+				window.mainFrame.setVisible(true);
+				SECONDFRAME.dispose();
+			
+			}
+		});
+		btnNewButton_1.setBounds(90, 311, 89, 23);
+		SECONDFRAME.getContentPane().add(btnNewButton_1);
+	}
+}
