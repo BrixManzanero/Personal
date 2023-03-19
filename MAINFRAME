@@ -1,0 +1,216 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import java.awt.Color;
+import javax.swing.JCheckBox;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class MainFrame {
+
+	 JFrame mainFrame;
+	private JTextField txtUsername;
+	private JPasswordField JPASSWORD;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainFrame window = new MainFrame();
+					window.mainFrame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MainFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		mainFrame = new JFrame();
+		mainFrame.getContentPane().setBackground(new Color(0, 128, 128));
+		mainFrame.setBounds(100, 100, 473, 368);
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(26, 11, 409, 307);
+		mainFrame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.DARK_GRAY);
+		panel_1.setBounds(100, 81, 171, 47);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		txtUsername = new JTextField();
+		txtUsername.setFont(new Font("Arial", Font.BOLD, 12));
+		txtUsername.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(txtUsername.getText().equals("Username")) {
+					txtUsername.setText("");
+				}
+				else {
+					txtUsername.selectAll();
+				}
+			
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(txtUsername.getText().equals(""))
+				txtUsername.setText("Username");
+			}
+		});
+		txtUsername.setText("Username");
+		txtUsername.setBounds(10, 11, 139, 25);
+		panel_1.add(txtUsername);
+		txtUsername.setColumns(10);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setBackground(Color.DARK_GRAY);
+		panel_1_1.setBounds(100, 168, 171, 47);
+		panel.add(panel_1_1);
+		panel_1_1.setLayout(null);
+		
+		JPASSWORD = new JPasswordField();
+		JPASSWORD.setFont(new Font("Arial", Font.BOLD, 12));
+		JPASSWORD.addFocusListener(new FocusAdapter() {
+			@Override
+			public void focusGained(FocusEvent e) {
+			
+				if(JPASSWORD.getText().equals("Password")) {
+					JPASSWORD.setEchoChar('●');
+					JPASSWORD.setText("");	
+				}
+				
+				else {
+					JPASSWORD.selectAll();
+				}
+			
+			
+			}
+			@Override
+			public void focusLost(FocusEvent e) {
+			
+				if(JPASSWORD.getText().equals(""))
+					JPASSWORD.setText("Password");
+					JPASSWORD.setEchoChar((char)0);
+			}
+		});
+		JPASSWORD.setText("Password");
+		JPASSWORD.setEchoChar((char)0);
+		JPASSWORD.setBounds(10, 11, 143, 25);
+		panel_1_1.add(JPASSWORD);
+		
+		JButton btnNewButton = new JButton("LOG IN");
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setFont(new Font("Arial", Font.BOLD, 12));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(txtUsername.getText().equals("ADMIN123") && JPASSWORD.getText().equals("cosmo")) {
+					JOptionPane.showMessageDialog(null, "LOG IN SUCCESSFULLY");
+					SecondFrame sf = new SecondFrame();
+					sf.SECONDFRAME.setVisible(true);
+				 	mainFrame.dispose();
+				 	txtUsername.setText(null);
+				 	JPASSWORD.setText(null); 
+				 	mainFrame.dispose();
+				 	
+				}
+				else if(txtUsername.getText().equals("123") && JPASSWORD.getText().equals("cosmo")) {
+					JOptionPane.showMessageDialog(panel, panel, "INCORRECT USERNAME", JOptionPane.WARNING_MESSAGE);
+					
+				}
+				else if(txtUsername.getText().equals("ADMIN") && JPASSWORD.getText().equals("123")) {
+					JOptionPane.showMessageDialog(panel, panel, "INCORRECT PASSWORD", JOptionPane.WARNING_MESSAGE);
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Please Input the credentials");
+					mainFrame.dispose();
+				}
+				
+				 	
+			}
+		
+	
+		});
+		btnNewButton.setBounds(142, 273, 89, 23);
+		panel.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("NUIS");
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 15));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(60, 23, 254, 47);
+		panel.add(lblNewLabel);
+		
+		JCheckBox ShowPass = new JCheckBox("Show Password");
+		ShowPass.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			
+				if(ShowPass.isSelected()) {
+					JPASSWORD.setEchoChar((char)0);
+					
+				}
+				else {
+					JPASSWORD.setEchoChar('●');
+				}
+			}
+		});
+		ShowPass.setBounds(194, 235, 120, 23);
+		panel.add(ShowPass);
+		
+		JLabel ForgetPass = new JLabel("Forget Password");
+		ForgetPass.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+			
+				if(txtUsername.getText().equals("ADMIN")) {
+					JOptionPane.showMessageDialog(null, "Your password is: cosmo");
+				}
+				else if(txtUsername.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Please Input your Username ");
+				}
+				else {
+					JOptionPane.showMessageDialog(null, "Invalid Username");
+					txtUsername.setText(null);
+					JPASSWORD.setText(null);
+				
+				}
+					
+				
+			
+			}
+		});
+		ForgetPass.setBounds(202, 143, 100, 14);
+		panel.add(ForgetPass);
+	}
+}
