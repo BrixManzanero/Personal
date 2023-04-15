@@ -1,0 +1,42 @@
+import java.util.*;
+public class Array {
+
+	public static void main(String[] args) {
+		
+		char[] ch;
+		String str;
+		int num=0,letter=0,characEn=0,spl=0,length;
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter the your Name: ");
+		str = sc.nextLine();
+		ch = str.toCharArray();
+		length = str.length();
+		
+		
+	
+		for(int i=0;i<length;i++)
+		{
+			if(Character.isDigit(ch[i]))
+			{
+				num++;
+			}
+			else if(Character.isLetter(ch[i]))
+			{
+				letter++;
+				
+			}
+			else {
+				spl++;
+				
+			}
+		
+		}
+		System.out.println("Number of Total: "+ num);
+		System.out.println("Letters of Total: "+ letter);
+		System.out.println("Characters Entered: "+ str.length());
+		System.out.println("Special Characters: "+spl);
+		
+	}
+
+}
