@@ -1,0 +1,62 @@
+import java.util.*;
+public class App {
+
+	public static void main(String[] args) {
+	
+		
+		Scanner input = new Scanner(System.in);
+		
+		int array[] = {15, 30, 25, 19, 30, 40};
+		
+		while(array.length !=0) {
+			int numberofRemovedElements = 0;
+	
+		
+			int newIndex = 0;
+			int tempArray[] = array.clone();
+			
+			System.out.print("Enter number to delete: ");
+			int numberToDelete = input.nextInt();
+			
+			for(int number: array) {
+				if(number == numberToDelete) {
+					numberofRemovedElements++;
+					
+				}
+			}
+			
+			if(numberofRemovedElements == 0)
+				System.out.println("Error! There's Element Found");
+			else {
+				array = new int[tempArray.length - numberofRemovedElements];
+				
+				if(array.length > 0) {
+					for(int originalIndex = 0; originalIndex < tempArray.length; originalIndex++) {
+						
+					if(tempArray[originalIndex] != numberToDelete) {
+						array[newIndex] = tempArray[originalIndex];
+					
+						newIndex++;
+					}
+				
+				}
+					System.out.print("New List: ");
+					for(int updatedNumber : array) {
+						
+						System.out.print(updatedNumber + " ");
+					}
+					System.out.println();
+			}
+		
+		
+		}
+		
+	
+		}
+		
+		System.out.println("Array is Empt\n\nPrograms Ends...");
+		input.close();
+	
+	}
+
+}
