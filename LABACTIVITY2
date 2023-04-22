@@ -1,0 +1,19 @@
+public class ArrayExcep {
+
+	public static void main(String[] args) {
+		
+		String []	 MyArray = {"one", "two", "three"};
+		
+		try
+		{
+			System.out.println(MyArray[3]);
+			
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("ArrayIndexOutIOfBounds");
+		
+		}
+	}
+
+}
