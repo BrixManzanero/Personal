@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class MobileNumberValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the contact mobile number: ");
+        String input = scanner.nextLine();
+        boolean isValid = validateMobileNumber(input);
+        if (isValid) {
+            System.out.println("Mobile number is accepted.");
+        } else {
+            System.out.println("Invalid mobile number.");
+        }
+    }
+
+    public static boolean validateMobileNumber(String input) {
+        String pattern = "^\\+\\d{2}-\\d{3}-\\d{3}-\\d{4}$";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(input);
+        return matcher.matches();
+    }
+}
