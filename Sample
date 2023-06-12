@@ -1,0 +1,49 @@
+JButton btnLogin = new JButton("");
+        btnLogin.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		String UserNameEmail = txtUserNameEmail.getText().toString();
+                String EnterPassword = pwdEnterYourPassword.getText();
+                
+                  	if(UserNameEmail.equals("")&&EnterPassword.equals(""))  {
+                  		JOptionPane.showMessageDialog(null, "PLEASE ENTER USERNAME AND PASSWORD","INVALID LOGIN", JOptionPane.ERROR_MESSAGE);                  		
+                  	}
+                  	else if(!(UserNameEmail.equals(""))&&EnterPassword.equals("")) {
+                  		JOptionPane.showMessageDialog(null, "PLEASE ENTER YOUR PASSWORD","INVALID LOGIN", JOptionPane.ERROR_MESSAGE);
+                  		txtUserNameEmail.setText(null);                  		
+                  		pwdEnterYourPassword.setText(null);                  	
+                  	}                        	                 	
+                  		try {
+                            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\user\\Documents\\NuBos\\Registration.txt" ));
+                            String line;
+                            boolean loginSuccessful = false;
+                            
+                            while ((line = reader.readLine()) != null) {
+                                String[] accountData = line.split(",");
+                                
+                                if (accountData.length >= 3) {
+                                    String email = accountData[1];
+                                    String password = accountData[2];
+                                    
+                                    if (email.equals(UserNameEmail) && password.equals(EnterPassword)) {
+                                        loginSuccessful = true;
+                                        break;
+                                    }
+                                }
+                            }     
+                            reader.close();
+                            
+                            if (loginSuccessful) {
+                                JOptionPane.showMessageDialog(LoginPage.this, "Login successful!");
+                                MyProfile MP = new MyProfile();
+                          		MP.setVisible(true);
+                          		dispose();
+                            } else {
+                                JOptionPane.showMessageDialog(LoginPage.this, "Invalid email or password!");
+                            }
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                            JOptionPane.showMessageDialog(LoginPage.this, "Error reading accounts file!");
+                        }
+        	}
+        });
