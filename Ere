@@ -1,0 +1,41 @@
+
+public class Era {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		  String[] lyrics = {
+		            "         Tatlong bilyon, ikaw lamang aking gusto",
+		            "         Pasensya na kung ngayon ako'y di para sa'yo",
+		            "         Tayo ay papunta na sa'ting bagong yugto",
+		            "         'Yokong mabuhay sa isang mundong wala tayo.",
+		                   
+		        };
+		        int delay = 85;
+		        System.out.println("");
+		        System.out.println("");
+		        System.out.println("");
+		        System.out.println("");
+		        System.out.println("");
+		        horizontalPrint(lyrics, delay);
+		        System.out.println("");
+		        System.out.println("");
+		        System.out.println("");
+		        System.out.println("");
+		    }
+
+		    public static void horizontalPrint(String[] lyrics, int delay) {
+		        try {
+		            for (String line : lyrics) {
+		                System.out.println("\r");
+		                for (char c : line.toCharArray()) {
+		                    System.out.print(c); 
+		                    Thread.sleep(delay);
+		                }
+		                Thread.sleep(delay * 15);
+		            }
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+		    }
+		}
